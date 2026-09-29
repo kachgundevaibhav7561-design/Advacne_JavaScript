@@ -21,9 +21,25 @@
         //defn
         //: template string are string written using backticks (` `) that allow use to eassily insert variblres or expression using ${}.
 
-        //arrow function 
+        //arrow function
         //rest operator
-        
+
+    </script>
+    <script>
+        var fname = "vaibhav";
+        var lname = "Kachgunde";
+
+        function fullName(fname, lname) {
+            return `${fname} ${lname}`;
+
+        }
+
+        let flname = `Hello ${fullName(fname, lname)}`;
+        document.write("<br>");
+        document.write(fullName(fname, lname));
+        document.write("<br>");
+        document.write(flname);
+
     </script>
 
 
