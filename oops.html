@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // constructor is a special method inside a class that is automatically called when we object create 
+        //constructor method 
+        class student {
+            constructor() {
+                document.write("Hello Constructor called  directly " + "<br>");
+            }
+        }
+        let s = new student();
+    </script>
+    <script>
+        class person {
+            constructor(name, age) {
+                this.p_name = name; // assign the value  oject property 
+                this.p_age = age; // refers to the current object being created
+                this.display();  // method called inside constructor
+            }
+
+            display() {
+                document.write(`Name : ${this.p_name} , age : ${this.p_age}`);
+            }
+        }
+
+        const s1 = new person("Rutuja ", 21);
+        const s2 = new person("pallavi ", 22);
+        //s1.display();
+        //s2.display();
+    </script>
+
+    <script>
+        class student1{
+            constructor(name,course){
+                this.name = name ;
+                this.course=course;
+                this.display();
+
+            }
+            display(){
+                console.log(`Name :  ${this.name}`);
+                console.log(`course :  ${this.course}`);
+            }
+            static collegeName(){
+                console.log("SIBM");
+            }
+
+        }
+        let stu = new student1("Anand", "IT");
+
+        //calling static method using static method using classname- classname .static methos name 
+        // in the static method belong the class not objeect 
+        student1.collegeName();
+
+    </script>
+
+</body>
+</html>

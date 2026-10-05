@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // parent class 
+        class person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            showInfo() {
+                document.write(` <h1>Person Info : </h1> - Name : ${this.name} , age : ${this.age}`);
+            }
+        }
+
+        //child class
+        class student extends person {
+            constructor(name, age, roll_no) {
+                super(name, age);
+                this.roll_no=roll_no;
+
+            }
+            showStudent() {
+                document.write(` <h1>student Info : </h1> Name : ${this.name} <br>  age : ${this.age} <br> roll_no : ${this.roll_no}`);
+
+            }
+        }
+
+        //2 child class
+        class Employee extends person {
+            constructor(name, age, salary, Emp_id) {
+                super(name, age);
+                this.salary=salary
+                this.Emp_id= Emp_id;
+
+            }
+            showEmployee() {
+                document.write(` <h1>Employee : </h1> Name : ${this.name}<br>  age : ${this.age} <br> Salary : ${this.salary} <br> EmpId : ${this.Emp_id}`);
+
+            }
+        }
+
+        const s1=new student("Karan",22,101);
+        s1.showStudent();
+        const s2=new person("sagar",21);
+        s2.showInfo();
+        const s3= new Employee("Vaibahv",21,35000,1201);
+        s3.showEmployee();
+
+    </script>
+
+</body>
+
+</html>

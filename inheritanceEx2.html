@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance Example</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Parent Class
+        class Person {
+
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            showInfo() {
+                document.write(
+                    `<h1>Person Info:</h1>
+                     Name: ${this.name} <br>
+                     Age: ${this.age} <br><br>`
+                );
+            }
+        }
+
+
+        // Child Class
+        class Student extends Person {
+
+            constructor(name, age, roll_no) {
+
+                super(name, age);
+
+                this.roll_no = roll_no;
+            }
+
+            showStudent() {
+                document.write(
+                    `<h1>Student Info:</h1>
+                     Name: ${this.name} <br>
+                     Age: ${this.age} <br>
+                     Roll No: ${this.roll_no} <br><br>`
+                );
+            }
+        }
+
+
+        // Grandchild Class
+        class GraduateStudent extends Student {
+
+            constructor(name, age, roll_no, degree) {
+
+                super(name, age, roll_no);
+
+                this.degree = degree;
+            }
+
+            showGraduate() {
+                document.write(
+                    `<h1>Graduate Student Info:</h1>
+                     Degree: ${this.degree} <br><br>`
+                );
+            }
+        }
+
+
+        // Object Creation
+        const g1 = new GraduateStudent("Neha", 21, 1003, "BE");
+
+
+        // Method Calling
+        g1.showStudent();
+        g1.showGraduate();
+        g1.showInfo();
+
+    </script>
+
+</body>
+
+</html>
