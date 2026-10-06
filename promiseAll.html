@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Promise 1
+        let p1 = new Promise((resolve) => {
+            setTimeout(() => resolve("Apple ready"), 5000);
+        });
+
+        // Promise 2
+        let p2 = new Promise((resolve) => {
+            setTimeout(() => resolve("Banana ready"), 5000);
+        });
+
+        // Promise 3
+        let p3 = new Promise((resolve) => {
+            setTimeout(() => resolve("Grapes ready"), 5000);
+        });
+
+        Promise.all([p1, p2, p3])
+            .then(result => {
+                document.write("<h3>All fruits are ready</h3>");
+
+                result.forEach(item => {
+                    document.write(item + "<br>");
+                });
+            })
+            .catch(error => {
+                document.write(
+                    "<h3 style='color:red'>One or more Promises failed</h3>"
+                );
+            });
+
+    </script>
+
+</body>
+</html>
