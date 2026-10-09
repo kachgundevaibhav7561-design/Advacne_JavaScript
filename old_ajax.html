@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Locad local data </h2>
+    <button onclick="loadtext()">Load text file</button>
+    <button onclick="loadJSON()">Load Json file</button>
+
+    <pre id="ajaxData"> Click button to load data</pre>
+
+    <script>
+        function loadtext() {
+            var xhr = new XMLHttpRequest(); // create new ajax request Object 
+
+            xhr.open("GET", "file.txt", true);
+            // "Get" - Type of request
+            //file.txt - load to file
+            //true -  make the request ascynchronous (non-blocking) 
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    document.getElementById("ajaxData").textContent = xhr.responseText;
+                } else {
+                    document.getElementById("ajaxData").textContent = "Erroe loading tex file"
+                }
+            }
+            xhr.onerror= function(){
+                document.getElementById("ajaxData").textContent ="request Failed";
+
+            }
+            xhr.send();
+
+
+        }
+    </script>
+
+    <script>
+         function loadJSON() {
+            var xhr = new XMLHttpRequest(); // create new ajax request Object 
+
+            xhr.open("GET", "data.json", true);
+            // "Get" - Type of request
+            //file.txt - load to file
+            //true -  make the request ascynchronous (non-blocking) 
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    document.getElementById("ajaxData").textContent= JSON.stringify(data,null,4);
+                } else {
+                    document.getElementById("ajaxData").textContent = "Erroe loading tex file"
+                }
+            }
+            xhr.onerror= function(){
+                document.getElementById("ajaxData").textContent ="request Failed";
+
+            }
+            xhr.send();
+
+
+        }
+        
+    </script>
+</body>
+
+</html>
